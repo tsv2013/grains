@@ -83,3 +83,10 @@ def show_best_fit(data, best_dist, best_params):
     plt.hist(data, bins, density=True, label='Actual Data')
     plt.legend()
     plt.show()
+
+def best_fit_moments(best_dist, best_params):
+    dist = getattr(st, best_dist)
+    (m, v, s, k) = dist.stats(*best_params, moments='mvsk')
+    print('Mean and variance, calculated from best fit distribution parameters:')
+    print(m)
+    print(v)
